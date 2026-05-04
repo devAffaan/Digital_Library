@@ -3,6 +3,7 @@ from database import db
 from dotenv import load_dotenv
 from urllib.parse import quote_plus
 from flask_bcrypt import Bcrypt
+from flask_mail import Mail
 from flask import render_template, redirect, url_for, session
 import os
 
@@ -22,6 +23,14 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 db.init_app(app)
 
 bcrypt = Bcrypt(app)
+
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
+
+mail = Mail(app)
 
 from routes.books import books_bp
 from routes.contact import contact_bp
