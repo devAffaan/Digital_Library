@@ -5,6 +5,7 @@ from functools import wraps
 from flask_bcrypt import Bcrypt
 import os
 from werkzeug.utils import secure_filename
+from datetime import datetime
 
 admin_bp = Blueprint('admin', __name__)
 bcrypt = Bcrypt()
@@ -28,6 +29,7 @@ def login_required(f):
         return f(*args, **kwargs)
     return decorated
 
+
 @admin_bp.route('/api/admin/login', methods=['POST'])
 def admin_login():
     data = request.get_json()
@@ -46,6 +48,7 @@ def add_book():
     author      = request.form.get('author')
     category    = request.form.get('category')
     description = request.form.get('description', '')
+    download_enabled = int(request.form.get('download_enabled', 1))
     cover_file  = request.files.get('cover_image')
     pdf_file    = request.files.get('pdf_path')
 
@@ -70,8 +73,10 @@ def add_book():
         category=category,
         cover_image=cover_path,
         pdf_path=pdf_path,
-        description=description
-    )
+        description=description,
+        created_at=datetime.utcnow(),
+        download_enabled=download_enabled
+)
     db.session.add(new_book)
     db.session.commit()
 
@@ -84,6 +89,48 @@ def delete_book(book_id):
     db.session.delete(book)
     db.session.commit()
     return jsonify({'message': 'Book deleted!'})
+
+@admin_bp.route('/api/admin/books/<int:book_id>/toggle-download', methods=['POST'])
+@login_required
+def toggle_download(book_id):
+    book = Book.query.get_or_404(book_id)
+    book.download_enabled = 0 if book.download_enabled else 1
+    db.session.commit()
+    return jsonify({
+        'message': 'Updated successfully',
+        'download_enabled': book.download_enabled
+    })
+
+
+@admin_bp.route('/api/admin/banners', methods=['GET'])
+@login_required
+def get_banners():
+    from models import Banner
+    banners = Banner.query.order_by(Banner.id.desc()).all()
+    return jsonify([b.to_dict() for b in banners])
+
+@admin_bp.route('/api/admin/banners', methods=['POST'])
+@login_required
+def add_banner():
+    from models import Banner
+    banner_file = request.files.get('banner_image')
+    if not banner_file or not allowed_image(banner_file.filename):
+        return jsonify({'message': 'Valid image required!'}), 400
+    filename = secure_filename(banner_file.filename)
+    banner_file.save(os.path.join('static', 'images', filename))
+    banner = Banner(image_path=f'images/{filename}')
+    db.session.add(banner)
+    db.session.commit()
+    return jsonify({'message': 'Banner added!'})
+
+@admin_bp.route('/api/admin/banners/<int:banner_id>', methods=['DELETE'])
+@login_required
+def delete_banner(banner_id):
+    from models import Banner
+    banner = Banner.query.get_or_404(banner_id)
+    db.session.delete(banner)
+    db.session.commit()
+    return jsonify({'message': 'Banner deleted!'})
 
 @admin_bp.route('/api/admin/logout', methods=['POST'])
 def logout():

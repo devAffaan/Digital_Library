@@ -32,7 +32,7 @@ def submit_contact():
             recipients=[os.getenv('ADMIN_EMAIL')]
         )
         msg.body = f"""
-New message from Tooba Foundation website!
+New message from Toobaa Foundation!
 
 Name:    {data['name']}
 Email:   {data['email']}

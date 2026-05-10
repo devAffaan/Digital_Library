@@ -11,7 +11,7 @@
 <body>
 
 <div class="admin-navbar">
-    <h1>Tooba Foundation Admin</h1>
+    <h1>Toobaa Foundation Admin</h1>
     <button class="logout-btn" onclick="logout()">Logout</button>
 </div>
 
@@ -116,6 +116,14 @@
                            accept=".pdf">
                 </div>
 
+                <div class="mb-3">
+                    <label class="form-label">Download Permission</label>
+                    <select id="download_enabled" class="form-control">
+                    <option value="1">✅ Enabled</option>
+                     <option value="0">🚫 Disabled</option>
+                    </select>
+                </div>
+
             </div>
 
             <div class="modal-footer">
@@ -131,6 +139,19 @@
             </div>
 
         </div>
+    </div>
+</div>
+
+<div class="dashboard-container" style="margin-top: 0;">
+    <div class="stats-bar">
+        <h3>Banner Management</h3>
+        <button class="add-btn" onclick="document.getElementById('bannerFileInput').click()">
+            + Add Banner
+        </button>
+        <input type="file" id="bannerFileInput" accept="image/*" style="display:none" onchange="addBanner(this)">
+    </div>
+    <div class="table-container" style="padding: 20px;">
+        <div id="bannersGrid" class="banners-grid"></div>
     </div>
 </div>
 

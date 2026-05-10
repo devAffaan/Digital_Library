@@ -1,5 +1,6 @@
 window.onload = function() {
     loadBooks();
+    loadBanners();
 }
 
 async function loadBooks() {
@@ -47,7 +48,6 @@ async function loadBooks() {
     tableBody.innerHTML = rows;
 }
 
-
 async function addBook() {
     const title       = document.getElementById('title').value;
     const author      = document.getElementById('author').value;
@@ -61,12 +61,12 @@ async function addBook() {
         return;
     }
 
-   
     const formData = new FormData();
     formData.append('title', title);
     formData.append('author', author);
     formData.append('category', category);
     formData.append('description', description);
+    formData.append('download_enabled', document.getElementById('download_enabled').value);
 
     if (coverFile) {
         formData.append('cover_image', coverFile);
@@ -75,7 +75,6 @@ async function addBook() {
         formData.append('pdf_path', pdfFile);
     }
 
-
     const addBtn = document.getElementById('addBookBtn');
     addBtn.textContent = 'Adding...';
     addBtn.disabled = true;
@@ -83,7 +82,6 @@ async function addBook() {
     const response = await fetch('/api/admin/books', {
         method: 'POST',
         body: formData
-        
     });
 
     addBtn.textContent = 'Add Book';
@@ -102,14 +100,12 @@ async function addBook() {
         document.getElementById('cover_image').value = '';
         document.getElementById('pdf_path').value = '';
 
-
         loadBooks();
     } else {
         const data = await response.json();
         alert(data.message || 'Error adding book!');
     }
 }
-
 
 function previewImage(input) {
     const preview = document.getElementById('imagePreview');
@@ -146,5 +142,80 @@ async function logout() {
 
     if (response.ok) {
         window.location.href = '/admin/login';
+    }
+}
+
+async function toggleDownload(bookId) {
+    const response = await fetch(`/api/admin/books/${bookId}/toggle-download`, {
+        method: 'POST'
+    });
+
+    if (response.ok) {
+        const data = await response.json();
+        const btn = document.getElementById(`toggle-${bookId}`);
+        if (data.download_enabled) {
+            btn.textContent = 'Enabled';
+            btn.classList.remove('disabled');
+            btn.classList.add('enabled');
+        } else {
+            btn.textContent = 'Disabled';
+            btn.classList.remove('enabled');
+            btn.classList.add('disabled');
+        }
+    } else {
+        alert('Error updating download status!');
+    }
+}
+
+async function loadBanners() {
+    const response = await fetch('/api/admin/banners');
+    const banners = await response.json();
+    const grid = document.getElementById('bannersGrid');
+
+    if (!grid) return;
+
+    if (banners.length === 0) {
+        grid.innerHTML = '<p class="no-banners">No banners yet. Add your first banner!</p>';
+        return;
+    }
+
+    grid.innerHTML = banners.map(banner => `
+        <div class="banner-card" id="banner-${banner.id}">
+            <img src="/static/${banner.image_path}" alt="Banner">
+            <button class="banner-delete-btn" onclick="deleteBanner(${banner.id})">Delete</button>
+        </div>
+    `).join('');
+}
+
+async function addBanner(input) {
+    if (!input.files || !input.files[0]) return;
+
+    const formData = new FormData();
+    formData.append('banner_image', input.files[0]);
+
+    const response = await fetch('/api/admin/banners', {
+        method: 'POST',
+        body: formData
+    });
+
+    if (response.ok) {
+        input.value = '';
+        loadBanners();
+    } else {
+        alert('Error adding banner!');
+    }
+}
+
+async function deleteBanner(bannerId) {
+    if (!confirm('Delete this banner?')) return;
+
+    const response = await fetch(`/api/admin/banners/${bannerId}`, {
+        method: 'DELETE'
+    });
+
+    if (response.ok) {
+        loadBanners();
+    } else {
+        alert('Error deleting banner!');
     }
 }
