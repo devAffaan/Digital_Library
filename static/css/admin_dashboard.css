@@ -19,7 +19,7 @@ body {
 
 .admin-navbar h1 {
     color: white;
-    font-size: 22px;
+    font-size: 26px;
     font-weight: 600;
 }
 
@@ -200,7 +200,7 @@ tr:hover td {
     }
 
     .admin-navbar h1 {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .logout-btn {
@@ -239,12 +239,12 @@ tr:hover td {
 
     th {
         padding: 10px 8px;
-        font-size: 12px;
+        font-size: 16px;
     }
 
     td {
         padding: 8px;
-        font-size: 12px;
+        font-size: 15px;
     }
 
     .book-cover {

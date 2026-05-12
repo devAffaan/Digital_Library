@@ -18,7 +18,7 @@
 
     <header>
         <nav class="navbar">
-            <h1>Toobaa Foundation</h1>
+            <h1><a href="/" style="text-decoration:none; color:white;">Toobaa Foundation</a></h1>
             <ul class="ul1" id="navMenu">
                 <li><a href="/">Home</a></li>
                 <li><a href="/about">About us</a></li>
@@ -44,18 +44,18 @@
    <section class="s2">
     <h2>Categories</h2>
     <div class="bookstypes">
-        <div><a href="#" onclick="filterBooks('all'); return false;">All Books</a></div>
-        <div><a href="#" onclick="filterBooks('English Books'); return false;">English Books</a></div>
-        <div><a href="#" onclick="filterBooks('Pothwari Books'); return false;">Pothwari Books</a></div>
-        <div><a href="#" onclick="filterBooks('History Books'); return false;">History Books</a></div>
-        <div><a href="#" onclick="filterBooks('Punjabi Books'); return false;">Punjabi Books</a></div>
-        <div><a href="#" onclick="filterBooks('Urdu Poetry'); return false;">Urdu Poetry</a></div>
-        <div><a href="#" onclick="filterBooks('Tasawuf'); return false;">Tasawuf</a></div>
-        <div><a href="#" onclick="filterBooks('Biographies'); return false;">Biographies</a></div>
-        <div><a href="#" onclick="filterBooks('Philosophy Books'); return false;">Philosophy Books</a></div>
-        <div><a href="#" onclick="filterBooks('Sufi Nama'); return false;">Sufi Nama</a></div>
-        <div><a href="#" onclick="filterBooks('PhD Thesis'); return false;">PhD Thesis</a></div>
-        <div><a href="#" onclick="filterBooks('Islamic Books'); return false;">Islamic Books</a></div>
+        <div><a href="#" onclick="filterBooks('all'); return false;"><i class="fa-solid fa-book-open"></i><br>All Books</a></div>
+        <div><a href="#" onclick="filterBooks('English Books'); return false;"><i class="fa-solid fa-language"></i><br>English Books</a></div>
+        <div><a href="#" onclick="filterBooks('Pothwari Books'); return false;"><i class="fa-solid fa-map-pin"></i><br>Pothwari Books</a></div>
+        <div><a href="#" onclick="filterBooks('History Books'); return false;"><i class="fa-solid fa-landmark"></i><br>History Books</a></div>
+        <div><a href="#" onclick="filterBooks('Punjabi Books'); return false;"><i class="fa-solid fa-flag"></i><br>Punjabi Books</a></div>
+        <div><a href="#" onclick="filterBooks('Urdu Books'); return false;"><i class="fa-solid fa-feather"></i><br>Urdu Books</a></div>
+        <div><a href="#" onclick="filterBooks('Tasawuf'); return false;"><i class="fa-solid fa-moon"></i><br>Tasawuf</a></div>
+        <div><a href="#" onclick="filterBooks('Biographies'); return false;"><i class="fa-solid fa-user"></i><br>Biographies</a></div>
+        <div><a href="#" onclick="filterBooks('Philosophy Books'); return false;"><i class="fa-solid fa-brain"></i><br>Philosophy Books</a></div>
+        <div><a href="#" onclick="filterBooks('Sufi Nama'); return false;"><i class="fa-solid fa-star-and-crescent"></i><br>Sufi Nama</a></div>
+        <div><a href="#" onclick="filterBooks('PhD Thesis'); return false;"><i class="fa-solid fa-graduation-cap"></i><br>PhD Thesis</a></div>
+        <div><a href="#" onclick="filterBooks('Islamic Books'); return false;"><i class="fa-solid fa-mosque"></i><br>Islamic Books</a></div>
     </div>
 </section>
 
@@ -71,10 +71,10 @@
 </section>
 
     <section class="s3">
-        <h2 class="fh2">All Books</h2>
-        <div class="booksdiv" id="booksdiv">
-        </div>
-    </section>
+    <div id="categorySections"></div>
+    <h2 class="fh2">All Books</h2>
+    <div class="booksdiv" id="booksdiv"></div>
+</section>
 
     <footer class="footer">
         <h2 class="about">About Us</h2>

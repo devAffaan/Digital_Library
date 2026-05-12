@@ -6,6 +6,7 @@ window.onload = function() {
     }
     loadNewBooks();
     loadBanners();
+    loadCategorySections();
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -49,6 +50,8 @@ async function loadBooks() {
         const books = await response.json();
         const newSection = document.querySelector('.s-new');
         if (newSection) newSection.style.display = 'block';
+        const catSections = document.getElementById('categorySections');
+        if (catSections) catSections.style.display = 'block';
         displayBooks(books);
     } catch (error) {
         console.error('Error loading books:', error);
@@ -60,6 +63,7 @@ async function searchBooks() {
 
     if (query === '') {
         loadBooks();
+        loadCategorySections();
         return;
     }
 
@@ -75,6 +79,7 @@ async function searchBooks() {
 async function filterBooks(category) {
     if (category === 'all') {
         loadBooks();
+        loadCategorySections();
         document.getElementById('booksdiv').scrollIntoView({ behavior: 'smooth' });
         return;
     }
@@ -95,6 +100,9 @@ function displayBooks(books, hideNewArrivals = false) {
 
     const newSection = document.querySelector('.s-new');
     if (newSection) newSection.style.display = hideNewArrivals ? 'none' : 'block';
+
+    const catSections = document.getElementById('categorySections');
+    if (catSections) catSections.style.display = hideNewArrivals ? 'none' : 'block';
 
     if (books.length === 0) {
         booksdiv.innerHTML = '<p style="padding:20px; text-align:center; white-space:nowrap;">No books found.</p>';
@@ -140,6 +148,66 @@ function applyUrduFont() {
             el.style.fontFamily = "'Poppins', sans-serif";
         }
     });
+}
+
+const categories = [
+    'English Books',
+    'Pothwari Books',
+    'History Books',
+    'Punjabi Books',
+    'Urdu Books',
+    'Tasawuf',
+    'Biographies',
+    'Philosophy Books',
+    'Sufi Nama',
+    'PhD Thesis',
+    'Islamic Books'
+];
+
+async function loadCategorySections() {
+    const container = document.getElementById('categorySections');
+    if (!container) return;
+
+    container.innerHTML = '';
+
+    try {
+        const response = await fetch('/api/books');
+        const allBooks = await response.json();
+
+        categories.forEach(category => {
+            const books = allBooks.filter(b => b.category === category);
+            if (books.length === 0) return;
+
+            const preview = books.slice(0, 4);
+
+            const section = document.createElement('div');
+            section.classList.add('cat-section');
+            section.innerHTML = `
+                <div class="cat-section-header">
+                    <h1 class="cat-section-title">${category}</h1>
+                    <button class="view-more-btn" onclick="filterBooks('${category}'); document.getElementById('booksdiv').scrollIntoView({behavior:'smooth'})">View More →</button>
+                </div>
+                <div class="cat-books-grid">
+                    ${preview.map(book => `
+                        <div class="bookcard">
+                            <img src="/static/${book.cover_image}"
+                                 alt="${book.title}"
+                                 onerror="this.src='/static/images/default.png'">
+                            <h3 class="fh3">${book.title}</h3>
+                            <p class="author">Author: <span class="author-name">${book.author}</span></p>
+                            <a href="/book/${book.id}">View Book</a>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            container.appendChild(section);
+        });
+
+        applyUrduFont();
+
+    } catch (error) {
+        console.error('Error loading category sections:', error);
+    }
 }
 
 async function loadNewBooks() {
@@ -278,7 +346,6 @@ async function loadBanners() {
             current = index;
             track.style.transition = 'transform 0.6s ease';
             track.style.transform = `translateX(-${current * 100}%)`;
-
             setTimeout(() => {
                 isTransitioning = false;
                 if (current === totalBanners) {
@@ -297,3 +364,13 @@ async function loadBanners() {
         console.error('Error loading banners:', error);
     }
 }
+
+document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'visible') {
+        setTimeout(loadBanners, 200);
+    }
+});
+
+window.addEventListener('pageshow', function() {
+    setTimeout(loadBanners, 200);
+});
