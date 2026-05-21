@@ -82,7 +82,7 @@ The project is organized into several key directories and files. In the root dir
 
 ---
 
-# User Features
+## User Features
 
 <img width="947" height="437" alt="image" src="https://github.com/user-attachments/assets/99b3f4b4-3f03-4182-9667-721c4fbe17fa" />
 
