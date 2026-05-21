@@ -44,7 +44,7 @@ Before installing the Toobaa Foundation platform, ensure you have the following 
 
 ### Step 1: Clone the Repository
 
-To begin installation, open your terminal or command prompt and navigate to the directory where you want to install the project. Run the command git clone https://github.com/devAffaan/toobaa-foundation.git to download the project files. Then navigate into the project directory by running cd toobaa-foundation.
+To begin installation, open your terminal or command prompt and navigate to the directory where you want to install the project. Run the command git clone https://github.com/devAffaan/Toobaa-foundation.git to download the project files. Then navigate into the project directory by running cd toobaa-foundation.
 
 ### Step 2: Set Up Python Virtual Environment
 
@@ -324,6 +324,117 @@ Search Bar:
 Below the header, a search input field is prominently displayed, allowing users to search for specific books within the collection by title, author, or keywords.
 Featured Books Section:
 The page showcases a horizontal scrollable carousel displaying featured and popular books from the collection, with thumbnail cover images visible for quick browsing.
+
+
+<img width="947" height="436" alt="image" src="https://github.com/user-attachments/assets/e3fba5f4-93ce-436b-bdcb-7d5b61d4f09e" />
+
+## 404 Page:
+
+A clean, minimalist, and user-friendly custom 404 "Page Not Found" error page designed for the Toobaa Foundation website. This page ensures that users who encounter a broken link or a non-existent URL can easily find their way back to the main content.
+
+## Deployment Instructions
+
+### Prerequisites for Production Deployment
+
+A Linux or Unix server such as Ubuntu is required to run the application. Python 3.8 or higher must be installed on the server. MySQL server must be installed and running on the server. A web server such as Nginx or Apache is required to proxy requests. An SSL certificate is required for HTTPS encryption in production.
+
+### Deploy on Linux Server
+
+SSH into your server using SSH credentials. Clone the repository using git clone https://github.com/devAffaan/Toobaa-foundation.git. Navigate into the project directory. Create a Python virtual environment using python3 -m venv venv. Activate the virtual environment using source venv/bin/activate. Install all dependencies using pip install -r requirements.txt. Create and configure the .env file with production settings. Create the MySQL database and tables using mysql -u root -p < database/schema.sql. Install Gunicorn for production using pip install gunicorn. Run the application using gunicorn -w 4 -b 0.0.0.0:8000 app:app which runs 4 worker processes. Configure Nginx to proxy requests from port 80 to localhost:8000.
+
+### Deploy on Heroku
+
+Install the Heroku CLI on your local machine. Login to Heroku using heroku login. Create a new app using heroku create your-app-name. Add a MySQL add-on using heroku addons:create cleardb:ignite. Configure environment variables using heroku config:set FLASK_ENV=production and heroku config:set SECRET_KEY=your_secret_key. Deploy the application using git push heroku main.
+
+### Deploy on AWS or DigitalOcean
+
+Use Docker containerization to package the application. Deploy to EC2 instances on AWS or Droplet instances on DigitalOcean. Use AWS RDS for managed MySQL database. Use Amazon S3 for storing uploaded files in the cloud. Set up CloudFront CDN for fast file delivery globally.
+
+---
+
+## Troubleshooting Guide
+
+### Common Issues and Solutions
+
+If you get a ModuleNotFoundError when running the app, first ensure your virtual environment is activated properly. Run pip install -r requirements.txt again to install all dependencies. Check that your Python version is 3.8 or higher using python --version.
+
+If you get a database connection error, verify that MySQL is running on your system using sudo systemctl status mysql. Check that all database credentials in your .env file are correct. Ensure that the toobaa_foundation database exists by running mysql -u root -p -e SHOW DATABASES. Run python init_db.py to initialize the database tables.
+
+If file upload is not working, check that the upload folder has correct permissions using chmod 755 uploads/. Verify that MAX_CONTENT_LENGTH in your configuration is set high enough. Ensure that the file size is within the upload limit. Check that the file type is allowed such as .jpg for images and .pdf for documents.
+
+If email notifications are not sending, verify the MAIL_SERVER settings in your .env file are correct. If using Gmail, enable Less secure apps in your Gmail account settings. Use an app-specific password for Gmail instead of your regular password. Check that your server firewall allows outgoing connections on port 587.
+
+If the login page shows blank or styling issues, clear your browser cache by pressing Ctrl+Shift+Delete. Check that CSS file paths in your templates are correct. Verify that static files are in the correct folder and accessible. Run flask run --reload to restart the development server.
+
+If the mobile menu is not working, check that JavaScript files are loaded properly. Verify that the hamburger menu ID matches between CSS and JavaScript. Test in a different browser to rule out browser-specific issues. Open the browser console by pressing F12 and check for JavaScript errors.
+
+### Frequently Asked Questions
+
+Q: How do I reset the admin password?
+A: Run this SQL command in MySQL: UPDATE users SET password=SHA2('newpassword', 256) WHERE username='admin';
+
+Q: Can I disable downloads for specific books?
+A: Yes, when adding or editing a book in the admin dashboard, in the Download Permission section, uncheck the Enable checkbox to disable downloads for that book.
+
+Q: How do I backup the database?
+A: Run the command mysqldump -u root -p toobaa_foundation > backup.sql to create a backup file.
+
+Q: Where are uploaded files stored?
+A: Book covers are stored in uploads/book_covers/, Book PDFs are stored in uploads/book_pdfs/, and Banner images are stored in uploads/banners/.
+
+Q: How do I add more book categories?
+A: Update the category selection dropdown in add_book_modal.html to add new categories. Also update the book filtering options in index.html to include the new category.
+
+---
+
+## Contributing Guidelines
+
+### Getting Started with Contributions
+
+We welcome contributions from developers and book enthusiasts who want to help improve the platform. To get started, fork the repository on GitHub. Create a new feature branch using git checkout -b feature/your-feature-name. Make your changes and test thoroughly before submitting. Commit your changes using git commit -m 'Add your feature description'. Push your changes using git push origin feature/your-feature-name. Create a Pull Request on GitHub with a clear description of your changes.
+
+### Code Standards
+
+Follow PEP 8 style guidelines for all Python code. Use meaningful variable and function names that clearly describe their purpose. Add comments to explain complex logic or non-obvious code sections. Keep functions under 50 lines to maintain readability. Test all changes thoroughly before submitting. Use proper error handling with try-except blocks.
+
+### Types of Contributions
+
+We accept bug fixes for issues found in the platform. We welcome feature additions that improve functionality. We appreciate documentation improvements and clarifications. We value book recommendations to add to the collection. We support translation efforts to add new language support. We encourage UI and UX enhancements for better user experience.
+
+---
+
+### How to Report Issues
+
+When reporting a bug or issue, include a detailed description of the problem. Provide step-by-step instructions on how to reproduce the issue. Describe the expected behavior versus the actual behavior you observed. Include screenshots or error messages if available. Provide your system information including operating system, browser name and version, and Python version.
+
+---
+
+## Changelog and Version History
+
+### Version 1.0.0 - Initial Release
+
+This is the first official release of the Toobaa Foundation platform. Features included: User authentication system with secure login. Book browsing and search functionality across the library. Admin dashboard with complete book management. Banner management system for promotional content. Contact form with automatic email notifications to admin. Mobile responsive design for all device sizes. Multi-language book support including Urdu, English, Pothwari, Punjabi, and History books. Download permission controls for each book. Category filtering to organize books by type. Social media integration for sharing and following. Custom PDF viewer with security restrictions. Secure file upload and management system.
+
+## Additional Resources and Documentation
+
+Flask Official Documentation - https://flask.palletsprojects.com/ - Complete Flask framework documentation and tutorials.
+
+MySQL Official Documentation - https://dev.mysql.com/doc/ - Comprehensive MySQL database documentation.
+
+HTML and CSS Reference - https://developer.mozilla.org/ - MDN Web Docs with HTML, CSS, and web standards information.
+
+JavaScript Guide - https://developer.mozilla.org/en-US/docs/Web/JavaScript/ - Complete JavaScript language documentation and examples.
+
+Git Version Control - https://git-scm.com/doc - Official Git documentation for version control.
+
+PDF.js Library - https://mozilla.github.io/pdf.js/ - Documentation for the PDF.js library used in the viewer.
+
+---
+
+Last Updated: May 2026
+Maintained By: devAffaan
+Repository: https://github.com/devAffaan/Toobaa-foundation
+Platform Version: 1.0.0
 
 
 
