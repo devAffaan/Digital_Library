@@ -82,11 +82,11 @@ The project is organized into several key directories and files. In the root dir
 
 ---
 
-## Complete Feature Documentation
+
 
 <img width="947" height="437" alt="image" src="https://github.com/user-attachments/assets/99b3f4b4-3f03-4182-9667-721c4fbe17fa" />
 
-# Home Page Description:
+## Home Page:
 
 The home page features a clean dark navy navbar with the Toobaa Foundation logo on the left, navigation links (Home, About us, Contact) in the center, and a search bar on the right for quick book discovery.
 Below the navbar is a full-width banner slider showcasing book covers in a visually rich grid layout giving visitors an instant feel of the library's vast and diverse collection. The banner automatically cycles through images.
@@ -94,7 +94,7 @@ The Categories section sits below the banner with icon-based category pills incl
 
 <img width="948" height="435" alt="image" src="https://github.com/user-attachments/assets/86230a97-f50a-4562-98cb-5507512ad80b" />
 
-# New Books Section Description:
+## New Books Section:
 
 Directly below the Categories section is the New Books section a dynamic, automatically updating area that highlights the latest additions to the library. Whenever the admin adds a new book through the admin dashboard, it instantly appears here without any manual effort.
 The section features a horizontal slider with left and right arrow buttons on both sides, allowing visitors to scroll through newly added books smoothly. Each book card displays the book cover image, title, and author name with a "View Book" button that takes the visitor directly to the book's detail page.
@@ -102,7 +102,7 @@ Books stay in the New Books section for 7 days after being added ensuring the se
 
 <img width="947" height="299" alt="image" src="https://github.com/user-attachments/assets/c71b34ab-6ed2-4497-be62-82f9191b62b5" />
 
-# Category Sections Description:
+## Category Sections:
 
 Below the New Books section, the home page is organized into dedicated category sliders each category gets its own clearly labeled horizontal book section, making it effortless for visitors to discover books by their preferred genre.
 
@@ -117,7 +117,7 @@ When admin adds a new book to any category, it instantly appears in that categor
 
 <img width="947" height="423" alt="image" src="https://github.com/user-attachments/assets/0e151ab1-7a6b-4270-a568-aa4e676eda99" />
 
-# Book Detail Page Description:
+## Book Detail Page:
 
 Clicking "View Book" on any book card takes the visitor to a dedicated Book Detail page a clean, minimal layout that gives complete information about the selected book in one place.
 The page features a elegant white card with rounded corners containing:
@@ -126,10 +126,10 @@ A "← Back" button at the top left so visitors can easily return to the previou
 The book cover image displayed on the left side of the card
 Complete book information on the right side including:
 
-Book title in large bold text
-Author name
-Category
-Full description of the book
+1. Book title in large bold text
+2. Author name
+3. Category
+4. Full description of the book
 
 At the bottom of the card are two action buttons:
 
@@ -140,7 +140,7 @@ All information on this page loads automatically from the database when admin ad
 
 <img width="854" height="437" alt="image" src="https://github.com/user-attachments/assets/d61cd1e6-850f-4258-987c-f33e4e02ed70" />
 
-# Related Books Section Description:
+## Related Books Section:
 
 Below the book detail card is a "Related Books" section automatically showing other books from the same category as the book being viewed.
 The section displays books in a clean responsive grid layout with each book presented in its own white card with rounded corners containing:
@@ -155,7 +155,7 @@ The related books grid is responsive showing 4 books per row on desktop and adju
 
 <img width="959" height="410" alt="image" src="https://github.com/user-attachments/assets/ae9db6d1-6d8d-45a0-a2bf-e268743e5154" />
 
-# About Us Page Description:
+## About Us Page:
 
 The About Us page features a clean minimal layout with the same dark navy navbar at the top for consistent navigation across the website.
 The page contains a simple yet powerful mission statement explaining the foundation's purpose dedicated to preserving rare and out-of-print books that have disappeared from the market. Through careful collection and digitization, the foundation brings these forgotten treasures back to life and makes them freely available to everyone who loves books. The mission is summarized simply as: "Save the stories that time tried to erase."
@@ -164,7 +164,7 @@ The page ends with the dark navy footer showing the copyright notice keeping the
 
 <img width="948" height="438" alt="image" src="https://github.com/user-attachments/assets/fa94d74b-706c-45b3-b785-8e9ee658bafd" />
 
-# Contact Page Description:
+## Contact Page:
 
 The Contact page features a clean two-column layout with the heading "Connect With Us" and a subtitle inviting visitors to get in touch freely.
 The left side contains a "Send your request" form with the following fields:
@@ -183,7 +183,7 @@ An automatic email notification is sent instantly to the admin's device via Flas
 
 <img width="802" height="387" alt="image" src="https://github.com/user-attachments/assets/4329fb78-3fe0-4f99-b65a-a921389e1e4d" />
 
-# Login Page Description:
+## Login Page:
 
 The Login page features a clean, centered card-based layout with the heading "Toobaa Foundation" and a subtitle inviting users to authenticate and access the platform.
 
@@ -206,7 +206,7 @@ The login form is fully functional and connected to the backend when a user ente
 
 <img width="947" height="422" alt="image" src="https://github.com/user-attachments/assets/335f31f6-a4ce-42ec-84f9-53034d38a36b" />
 
-# Admin Dashboard Description:
+## Admin Dashboard:
 
 The Admin Dashboard is a comprehensive management interface for the Toobaa Foundation's digital library and promotional content system. It features a professional dark navy header with the title "Toobaa Foundation Admin" and a "Logout" button in the top-right corner for secure session termination.
 Key Statistics:
@@ -227,7 +227,7 @@ The dashboard features a comprehensive data table with the following columns:
 
 <img width="814" height="195" alt="image" src="https://github.com/user-attachments/assets/55be9c35-ffb3-41b3-a197-d8633646dca4" />
 
-# Banner Management Description:
+## Banner Management:
 
 Below the books table, the dashboard includes a dedicated Banner Management module for controlling promotional content and homepage banners.
 Features:
@@ -245,7 +245,7 @@ The system displays various promotional banners featuring book collections, Urdu
 
 <img width="956" height="431" alt="image" src="https://github.com/user-attachments/assets/1184fafd-24d2-45a0-a906-fd2452ff0474" />
 
-# Add New Book Modal Description:
+## Add New Book Modal:
 
 When administrators click the "+ Add New Book" button, a modal dialog appears titled "Add New Book" with an intuitive form for creating new book entries.
 Form Fields:
@@ -277,7 +277,7 @@ At the bottom of the modal, two buttons are provided:
 
 <img width="945" height="245" alt="image" src="https://github.com/user-attachments/assets/83cba231-4bea-4079-b3db-3ae1d4c8cb40" />
 
-# Website Footer Description:
+## Website Foote:
 
 The footer is a comprehensive information section displayed at the bottom of the website with a dark navy background, providing essential details about the foundation and ways to connect with the organization.
 
@@ -304,7 +304,7 @@ A copyright statement is displayed at the bottom: "© 2025 Toobaa Foundation. Al
 
 <img width="209" height="358" alt="image" src="https://github.com/user-attachments/assets/bd0b7c58-4019-4471-b7aa-62d2875c9246" />
 
-# Mobile View Description:
+## Mobile View:
 
 The mobile view of the Toobaa Foundation website features a responsive design optimized for smaller screens with intuitive navigation and organized content categories.
 Header Section:
