@@ -84,9 +84,10 @@ The project is organized into several key directories and files. In the root dir
 
 ## User Features
 
-<img width="947" height="437" alt="image" src="https://github.com/user-attachments/assets/99b3f4b4-3f03-4182-9667-721c4fbe17fa" />
-
 ## Home Page:
+
+![Home Page](https://raw.githubusercontent.com/devAffaan/Digital_Library/main/screenshots/home.png)
+
 
 The home page features a clean dark navy navbar with the Digital Library logo on the left, navigation links (Home, About us, Contact) in the center, and a search bar on the right for quick book discovery.
 Below the navbar is a full-width banner slider showcasing book covers in a visually rich grid layout giving visitors an instant feel of the library's vast and diverse collection. The banner automatically cycles through images.
@@ -104,9 +105,10 @@ Books stay in the New Books section for 7 days after being added ensuring the se
 
 ---
 
-<img width="947" height="299" alt="image" src="https://github.com/user-attachments/assets/c71b34ab-6ed2-4497-be62-82f9191b62b5" />
-
 ## Category Sections:
+
+https://raw.githubusercontent.com/devAffaan/Digital_Library/main/screenshots/category.png
+
 
 Below the New Books section, the home page is organized into dedicated category sliders each category gets its own clearly labeled horizontal book section, making it effortless for visitors to discover books by their preferred genre.
 
