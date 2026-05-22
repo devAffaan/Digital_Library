@@ -1,12 +1,12 @@
-# Toobaa Foundation
+# Digital Library
 
 ## Project Overview
 
-Toobaa Foundation is a digital library platform dedicated to preserving rare and out-of-print books that have disappeared from the market. Through careful collection and digitization, we bring these forgotten treasures back to life and make them available to everyone who loves books. Our mission is simple: Save the stories that time tried to erase. This platform provides a comprehensive digital repository of Urdu, Pothwari, Punjabi, English, and historical literature, making it accessible to readers worldwide.
+This is a digital library platform dedicated to preserving rare and out-of-print books that have disappeared from the market. Through careful collection and digitization, we bring these forgotten treasures back to life and make them available to everyone who loves books. Our mission is simple: Save the stories that time tried to erase. This platform provides a comprehensive digital repository of Urdu, Pothwari, Punjabi, English, and historical literature, making it accessible to readers worldwide.
 
 ### Project Goals
 
-The primary goals of the Toobaa Foundation project are to preserve rare and endangered literary works that might otherwise be lost forever. We aim to digitize out-of-print books that are no longer available in physical form, making them accessible to a global audience. We strive to create an organized and searchable digital library where users can easily find books by title, author, category, or keywords. We provide administrators with easy-to-use content management tools to manage the growing collection efficiently. We support multiple languages and book categories to serve diverse readers and literary traditions. We enable secure user authentication and implement granular book access control to protect intellectual property while ensuring accessibility.
+The primary goals of this project is to preserve rare and endangered literary works that might otherwise be lost forever. We aim to digitize out-of-print books that are no longer available in physical form, making them accessible to a global audience. We strive to create an organized and searchable digital library where users can easily find books by title, author, category, or keywords. We provide administrators with easy-to-use content management tools to manage the growing collection efficiently. We support multiple languages and book categories to serve diverse readers and literary traditions. We enable secure user authentication and implement granular book access control to protect intellectual property while ensuring accessibility.
 
 ### Key Features
 
@@ -36,7 +36,7 @@ A file upload system handles image and PDF uploads with proper validation and st
 
 ## System Requirements
 
-Before installing the Toobaa Foundation platform, ensure you have the following tools and software installed on your system. Python version 3.8 or higher is required to run the Flask application. MySQL Server version 5.7 or higher is required for the database. pip, which is the Python package manager, is required to install Python dependencies. Git is required for version control and cloning the repository. A modern web browser such as Chrome, Firefox, Safari, or Edge is needed to access the platform. Node.js is optional and may be used for frontend dependencies if needed.
+Before installing this Digital Library platform, ensure you have the following tools and software installed on your system. Python version 3.8 or higher is required to run the Flask application. MySQL Server version 5.7 or higher is required for the database. pip, which is the Python package manager, is required to install Python dependencies. Git is required for version control and cloning the repository. A modern web browser such as Chrome, Firefox, Safari, or Edge is needed to access the platform. Node.js is optional and may be used for frontend dependencies if needed.
 
 ---
 
@@ -44,7 +44,7 @@ Before installing the Toobaa Foundation platform, ensure you have the following 
 
 ### Step 1: Clone the Repository
 
-To begin installation, open your terminal or command prompt and navigate to the directory where you want to install the project. Run the command git clone https://github.com/devAffaan/Toobaa-foundation.git to download the project files. Then navigate into the project directory by running cd toobaa-foundation.
+To begin installation, open your terminal or command prompt and navigate to the directory where you want to install the project. Run the command git clone https://github.com/devAffaan/Digital_Library.git to download the project files. Then navigate into the project directory by running cd Digital_Library.
 
 ### Step 2: Set Up Python Virtual Environment
 
@@ -88,7 +88,7 @@ The project is organized into several key directories and files. In the root dir
 
 ## Home Page:
 
-The home page features a clean dark navy navbar with the Toobaa Foundation logo on the left, navigation links (Home, About us, Contact) in the center, and a search bar on the right for quick book discovery.
+The home page features a clean dark navy navbar with the Digital Library logo on the left, navigation links (Home, About us, Contact) in the center, and a search bar on the right for quick book discovery.
 Below the navbar is a full-width banner slider showcasing book covers in a visually rich grid layout giving visitors an instant feel of the library's vast and diverse collection. The banner automatically cycles through images.
 The Categories section sits below the banner with icon-based category pills including All Books, English Books, Pothwari Books, History Books, Punjabi Books, Urdu Books, Tasawuf, Biographies, Philosophy Books, Sufi Nama, PhD Thesis, and Islamic Books making it easy for visitors to browse by their preferred genre.
 
@@ -199,7 +199,7 @@ An automatic email notification is sent instantly to the admin's device via Flas
 
 ## Login Page:
 
-The Login page features a clean, centered card-based layout with the heading "Toobaa Foundation" and a subtitle inviting users to authenticate and access the platform.
+The Login page features a clean, centered card-based layout and a subtitle inviting users to authenticate and access the platform.
 
 Form Structure:
 The login form contains the following fields:
@@ -224,7 +224,7 @@ The login form is fully functional and connected to the backend when a user ente
 
 ## Admin Dashboard:
 
-The Admin Dashboard is a comprehensive management interface for the Toobaa Foundation's digital library and promotional content system. It features a professional dark navy header with the title "Toobaa Foundation Admin" and a "Logout" button in the top-right corner for secure session termination.
+The Admin Dashboard is a comprehensive management interface for the digital library and promotional content system. It features a professional dark navy header with the title "Digital Library Admin" and a "Logout" button in the top-right corner for secure session termination.
 Key Statistics:
 The dashboard displays Total Books: 34, providing a quick overview of the complete library inventory at a glance.
 
@@ -329,11 +329,11 @@ A copyright statement is displayed at the bottom: "© 2025 Toobaa Foundation. Al
 
 ## Mobile View:
 
-The mobile view of the Toobaa Foundation website features a responsive design optimized for smaller screens with intuitive navigation and organized content categories.
+The mobile view of this Digital Library features a responsive design optimized for smaller screens with intuitive navigation and organized content categories.
 Header Section:
 The top of the page displays a dark navy header containing:
 
-Toobaa Foundation Logo/branding text on the left side
+Digital Library Logo/branding text on the left side
 Hamburger Menu Icon (☰) - Located in the top-right corner, this three-line icon opens a navigation drawer menu for accessing different pages
 
 Navigation Menu:
@@ -355,7 +355,7 @@ The page showcases a horizontal scrollable carousel displaying featured and popu
 
 ## 404 Page:
 
-A clean, minimalist, and user-friendly custom 404 "Page Not Found" error page designed for the Toobaa Foundation website. This page ensures that users who encounter a broken link or a non-existent URL can easily find their way back to the main content.
+A clean, minimalist, and user-friendly custom 404 "Page Not Found" error page designed for the Digital Library. This page ensures that users who encounter a broken link or a non-existent URL can easily find their way back to the main content.
 
 ---
 
@@ -367,7 +367,7 @@ A Linux or Unix server such as Ubuntu is required to run the application. Python
 
 ### Deploy on Linux Server
 
-SSH into your server using SSH credentials. Clone the repository using git clone https://github.com/devAffaan/Toobaa-foundation.git. Navigate into the project directory. Create a Python virtual environment using python3 -m venv venv. Activate the virtual environment using source venv/bin/activate. Install all dependencies using pip install -r requirements.txt. Create and configure the .env file with production settings. Create the MySQL database and tables using mysql -u root -p < database/schema.sql. Install Gunicorn for production using pip install gunicorn. Run the application using gunicorn -w 4 -b 0.0.0.0:8000 app:app which runs 4 worker processes. Configure Nginx to proxy requests from port 80 to localhost:8000.
+SSH into your server using SSH credentials. Clone the repository using git clone https://github.com/devAffaan/Digital_Library.git. Navigate into the project directory. Create a Python virtual environment using python3 -m venv venv. Activate the virtual environment using source venv/bin/activate. Install all dependencies using pip install -r requirements.txt. Create and configure the .env file with production settings. Create the MySQL database and tables using mysql -u root -p < database/schema.sql. Install Gunicorn for production using pip install gunicorn. Run the application using gunicorn -w 4 -b 0.0.0.0:8000 app:app which runs 4 worker processes. Configure Nginx to proxy requests from port 80 to localhost:8000.
 
 ### Deploy on Heroku
 
@@ -440,7 +440,7 @@ When reporting a bug or issue, include a detailed description of the problem. Pr
 
 ### Version 1.0.0 - Initial Release
 
-This is the first official release of the Toobaa Foundation platform. Features included: User authentication system with secure login. Book browsing and search functionality across the library. Admin dashboard with complete book management. Banner management system for promotional content. Contact form with automatic email notifications to admin. Mobile responsive design for all device sizes. Multi-language book support including Urdu, English, Pothwari, Punjabi, and History books. Download permission controls for each book. Category filtering to organize books by type. Social media integration for sharing and following. Custom PDF viewer with security restrictions. Secure file upload and management system.
+This is the first official release of this Digital Library platform. Features included: User authentication system with secure login. Book browsing and search functionality across the library. Admin dashboard with complete book management. Banner management system for promotional content. Contact form with automatic email notifications to admin. Mobile responsive design for all device sizes. Multi-language book support including Urdu, English, Pothwari, Punjabi, and History books. Download permission controls for each book. Category filtering to organize books by type. Social media integration for sharing and following. Custom PDF viewer with security restrictions. Secure file upload and management system.
 
 ## Additional Resources and Documentation
 
@@ -460,7 +460,7 @@ PDF.js Library - https://mozilla.github.io/pdf.js/ - Documentation for the PDF.j
 
 Last Updated: May 2026
 Maintained By: devAffaan
-Repository: https://github.com/devAffaan/Toobaa-foundation
+Repository: https://github.com/devAffaan/Digital_Library
 Platform Version: 1.0.0
 
 
